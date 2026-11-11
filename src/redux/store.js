@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import usersSlicereducer from "../redux/users"
+import userSlicereducer from "../redux/users"
+import userAsyncSlicereducer from '../redux/userAsync'
 
 const store = configureStore({
    reducer : {
-     usersSlice : usersSlicereducer
+    userSlice : userSlicereducer ,
+    userAsyncSlice  : userAsyncSlicereducer
    }
 })
-
 export default store

@@ -1,24 +1,47 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-
-let api = 'https://6aaa5efdff4dd5698b4e7685.mockapi.io/panel'
-
-export const getData = createAsyncThunk('users/getData' , async () => {
-    try {
-        const {data} = await 
-    } catch (error) {
-        console.log(error)
-    }
-})
-
-const usersSlice = createSlice({
-    name : 'users' ,
-    initialState : {
-        data : []
+const userSlice = createSlice({
+ name:'user' ,
+ initialState : {
+    data : [
+        {
+                id:1,
+                name : "Alex" ,
+                job : 'Teacher' ,
+                status : true
+            },
+            {
+                id:2,
+                name : "John" ,
+                job : 'Racer' ,
+                status : false
+            },
+            {
+                id:3,
+                name : "Will" ,
+                job : 'Coder' ,
+                status : true
+            },
+    ]
+},
+ reducers : {
+    dltUser : (state , {payload}) => {
+        state.data = state.data.filter((elem) => elem.id !== payload)
     },
-    reducers : {}
+    addUser : (state , {payload} )=> {
+        state.data = [...state.data , payload]
+    },
+    editUser : (state ,{payload}) => {
+        state.data = state.data.map((elem) => elem.id == payload.id ? payload : elem)
+    } ,
+    chekFunc : (state , {payload}) => {
+        const user = state.data.find((elem) => elem.id == payload)
+        if(user){
+            user.status = !user.status
+        }
+    }
+    
+ }
 })
-
-// export const {} = userSlice.actions
-
-export default usersSlice.reducer
+export const {dltUser , addUser , editUser , chekFunc} = userSlice.actions
+export default userSlice.reducer
