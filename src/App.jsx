@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import useUserStore from './ZustandStore/store'
-import { useSelector } from 'react-redux'
 import Redux from './pages/Redux'
+import Jotai from './pages/Jotai'
 
 const App = () => {
   const {data , dltUser , addData , editData , chekFunc} = useUserStore()
@@ -75,6 +75,7 @@ const App = () => {
   </div>
 
    <Redux/>
+   <Jotai/>
      
     <dialog className='m-auto' ref={modal}>
       <form onSubmit={handleSubmit} action="">
