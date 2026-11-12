@@ -11,7 +11,6 @@ const Jotai = () => {
         const [sort , setsort] = useState('all')
       const [form , setForm] = useState({id:null , name:null , job:null})
       
-      
       const handleSubmit = (e) => {
         e.preventDefault()
         let user = {
