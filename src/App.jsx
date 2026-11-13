@@ -16,8 +16,8 @@ function App() {
         reset,
         formState: { errors , isValid}
     } = useForm({
-      mode : 'onBlur',
-       defaultValues: {
+      mod : 'onBlur',
+       defaeultValues: {
         name: '',
         email: ''
     }
@@ -31,7 +31,7 @@ function App() {
 
         setSuccess(true)
 
-        setTimeout(() => {
+       setTimeout(() => {
             setSuccess(false)
         }, 2000)
 

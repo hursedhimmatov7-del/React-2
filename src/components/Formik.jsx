@@ -20,7 +20,7 @@ function Formiks() {
             .required('Email is required')
     })
 
-    const onSubmit = (data, { resetForm }) => {
+    const onSubmit = (data, {resetForm}) => {
         const users = getUsers()
 
         localStorage.setItem('user', JSON.stringify([...users, data]))
